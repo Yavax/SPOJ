@@ -26,7 +26,6 @@ public class Main
  
 		for(int i= 0; i < quan; i++){
 			s = read.next();
-			//System.out.print(s.length() + " ");     //test
 			word = "";
 			for(int j = 0; j < s.length(); j++){
 				
@@ -36,16 +35,14 @@ public class Main
 				if(s.charAt(j) == s.charAt(j+1) && s.charAt(j) == s.charAt(j+2)){
 					while(s.charAt(j) == s.charAt(j+num)){
 						num++;
+						if(j+num == s.length())break;
 					}
 					word = word + num;
 					j += (num-1);
 					
-				}
-				//System.out.print(j + " ");      //test
-				
+				}	
 			}
-			//System.out.println(i + " " +word);    //test
-      System.out.println(word);
+			System.out.println(word);
 		}
 	}
 }
