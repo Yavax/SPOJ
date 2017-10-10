@@ -1,3 +1,12 @@
+/*
+Zadanie
+Sprawdź, które spośród danych liczb są liczbami pierwszymi
+Input
+n - liczba testów n<100000, w kolejnych liniach n liczb z przedziału [1..10000]
+Output
+Dla każdej liczby słowo TAK, jeśli liczba ta jest pierwsza, słowo: NIE, w przeciwnym wypadku.
+*/
+
 import java.util.*;
 import java.lang.*;
 import java.util.Scanner;
@@ -16,9 +25,7 @@ public class Main
 			if(pierwsza(liczba)) {System.out.println("TAK");}
 			else {System.out.println("NIE");}
 		}
-		
 	}
-	
 	public static boolean pierwsza(int a){
 		boolean info = false;
 		int ile = 0;
@@ -29,7 +36,6 @@ public class Main
 			}
 		}
 		if(ile == 2) info = true;
-		
 		return info;
 	}
 }
