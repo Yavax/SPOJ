@@ -1,0 +1,51 @@
+/*
+Zadanie
+Twoim zadaniem jest dla zadanego wyrazu, który wymyśliła Kasia, podanie skróconej wersji tego wyrazu.
+Wejście
+W pierwszej linijce wejścia znajduje się liczba naturalna C, 1 ≤ C ≤ 50, oznaczająca ilość zestawów danych. 
+W kolejnych C wierszach wejścia znajdują się zestawy danych. Każdy zestaw składa się z niepustego wyrazu złożonego z 
+samych dużych liter alfabetu amerykańskiego. Długość wyrazu nie przekracza 200 znaków.
+Wyjście
+Dla każdego zestawu danych, dla zadanego wyrazu, na wyjściu powinna znaleźć się jego skrócona wersja.
+*/
+
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+import java.lang.String;
+ 
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int quan, num;
+		String s, word;
+		Scanner read = new Scanner(System.in);
+		quan = read.nextInt();
+ 
+		for(int i= 0; i < quan; i++){
+			s = read.next();
+			//System.out.print(s.length() + " ");     //test
+			word = "";
+			for(int j = 0; j < s.length(); j++){
+				
+				num = 1;
+				word += s.charAt(j);
+				if(j<s.length()-2)
+				if(s.charAt(j) == s.charAt(j+1) && s.charAt(j) == s.charAt(j+2)){
+					while(s.charAt(j) == s.charAt(j+num)){
+						num++;
+					}
+					word = word + num;
+					j += (num-1);
+					
+				}
+				//System.out.print(j + " ");      //test
+				
+			}
+			//System.out.println(i + " " +word);    //test
+      System.out.println(word);
+		}
+	}
+}
