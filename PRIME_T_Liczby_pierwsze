@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int n;
+		int liczba;
+		Scanner odczyt = new Scanner(System.in);
+		n = odczyt.nextInt();
+		
+		for(int i = 0; i<n; i++){
+			liczba = odczyt.nextInt();
+			if(pierwsza(liczba)) {System.out.println("TAK");}
+			else {System.out.println("NIE");}
+		}
+		
+	}
+	
+	public static boolean pierwsza(int a){
+		boolean info = false;
+		int ile = 0;
+		
+		for(int i = 1; i<=a; i++){
+			if(a%i == 0){
+				ile++;
+			}
+		}
+		if(ile == 2) info = true;
+		
+		return info;
+	}
+}
