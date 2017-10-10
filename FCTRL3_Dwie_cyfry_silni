@@ -1,0 +1,29 @@
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int ile, a;
+		Scanner odczyt = new Scanner(System.in);
+		ile = odczyt.nextInt();
+		
+		for(int i= 0; i < ile; i++){
+			int jedno = 0;
+			int dziesio = 0;
+			int silnia = 1;
+			a = odczyt.nextInt();
+			
+			if(a<10){
+				for(int j = 1; j <= a; j++){
+					silnia *= j;
+				}
+				jedno = silnia % 10;
+				dziesio = (silnia/10)%10;
+			}
+			System.out.println(dziesio + " " + jedno);
+		}
+	}
+}
