@@ -1,0 +1,33 @@
+/*
+Twoim zadaniem jest dodać wszystkie liczby całkowite podane na wejściu.
+
+Wejście
+W pierwszym wierszu znajduje się liczba t testów (0 < t < 100) 
+Każdy test opisany jest w następujący sposób. W pierwszym wierszu dana jest liczba n - liczba liczb do zsumowania. 
+Następnie podanych jest n liczb pooddzielanych spacją.
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+ 
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int tests,num, sum;
+		Scanner read = new Scanner(System.in);
+		tests = read.nextInt();
+ 
+		for(int i = 0; i < tests; i++){
+			num = read.nextInt();
+			{
+				sum = 0;
+				for(int j = 0; j < num; j++){
+					sum += read.nextInt();
+				}
+				System.out.println("" + sum);
+			}
+		}
+	}
+}
