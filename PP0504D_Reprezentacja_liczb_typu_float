@@ -1,0 +1,47 @@
+/*
+Napisz funkcję
+
+void printfloat(float);
+która dla zadanej liczby typu float wypisze jej reprezentację szesnastkową.
+Wejście
+W pierwszej linii liczba testów t, w kolejnych t wierszach jedna liczba zmiennoprzecinkowa w zakresie typu float.
+Wyjście
+W kolejnych t wierszach odzielone pojedynczymi spacjami bajty reprezenacji kolejnych liczb, w kolejności od najstarszego bajtu.
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception{
+		Float x = 1f;
+		int num;
+		String hex;
+		Scanner read = new Scanner(System.in);
+		num = read.nextInt();
+		for(int i = 0; i < num; i++){
+			x = read.nextFloat();
+			if(x == 0f) System.out.println("0 0 0 0");
+			else {
+				hex = Integer.toHexString(Float.floatToRawIntBits(x));
+				System.out.println(formatHex(hex));
+			}
+		}
+	}
+	
+	public static String formatHex(String word){
+		String result = "";
+		for(int i = 0; i < word.length(); i += 2){
+			if(word.charAt(i) == '0' && word.charAt(i+1) == '0'){
+				result = (result + "0 ");
+			}else{
+				result = (result + word.charAt(i) + word.charAt(i+1) + " ");
+			}
+			
+		}
+		
+		return result;
+	}
+}
