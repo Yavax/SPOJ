@@ -1,0 +1,43 @@
+/*
+Napisz funkcję:
+int nwd(int a, int b);
+która oblicza największy wspólny dzielnik liczb a i b,
+ 0 <= a,b <= 1000000
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int n, a, b;
+		Scanner read = new Scanner(System.in);
+		n = read.nextInt();
+		
+		for(int i = 0; i<n; i++){
+			a = read.nextInt();
+			b = read.nextInt();
+			System.out.println(nwd(a, b));
+		}
+	}
+	
+	public static int nwd(int a, int b){
+		int nwd = 0;
+		
+		do{
+			if(a == b) nwd = a;
+			else if(a < b){
+				if( b % a == 0) nwd = a;
+				else b = b % a;
+			} else {
+				if( a % b == 0) nwd = b;
+				a = a % b;
+			}
+			
+		}while(nwd == 0);
+		return nwd;
+	}
+}
