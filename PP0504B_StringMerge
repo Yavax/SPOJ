@@ -1,0 +1,49 @@
+/*
+Napisz funkcję:
+char* string_merge(char *, char *);
+która sklei ze sobą dwa łańcuchy biorąc na przemian po jednym znaku z każdego 
+łańcucha i umieści w nowej dynamicznie alokowanej tablicy znaków, do której zwróci wskaźnik. 
+Należy wziąć po tyle znaków ile jest w krótszym łańcuchu.
+Input
+W pierwszej linii liczba testów t, w kolejnych liniach po dwa łańcuchy znaków odzielone spacją.
+Output
+W każdej linii jeden łańcuch, wynik działania funkcji string_merge.
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int tests;
+		String a, b;
+		Scanner read = new Scanner(System.in);
+		tests = read.nextInt();
+		
+		for(int i = 0; i < tests; i++){
+			a = read.next();
+			b = read.next();
+			System.out.println(string_merge(a, b));
+		}
+	}
+	
+	public static String string_merge(String a, String b){
+		String result = "";
+		
+		if(a.length() <= b.length()){
+			for(int i = 0; i<a.length(); i++){
+				result += a.charAt(i);
+				result += b.charAt(i);
+			}
+		}else{
+			for(int i = 0; i<b.length(); i++){
+				result += a.charAt(i);
+				result += b.charAt(i);	
+			}
+		}
+		return result;
+	}
+}
