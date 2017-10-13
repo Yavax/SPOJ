@@ -1,0 +1,85 @@
+/*
+Dana jest lista punktów na płaszczyżnie. Posortuj je względem odległości od środka układu współrzędnych w metryce euklidesowej.
+Wejście
+W pierwszej linii liczba testów t (t < 100). 
+Dla każdego testu najpierw n (1 ≤ n ≤ 1000) - liczba punktów i w kolejnych n liniach opis każdego punktu w formacie: 
+nazwa x y
+gdzie nazwa jest unikalnym dla każdego testu ciągiem co najwyżej 10 liter alfabetu łacińskiego, a x i y są współrzędnymi punktu. 
+Obie współrzędne są całkowite oraz -1000 ≤ x, y ≤ 1000. 
+Kolejne testy oddzielone są jednym pustym wierszem. Żadne 2 punkty nie leżą w tej samej odległości od środka układu współrzędnych.
+Wyjście
+Dla każdego przypadku testowego w kolejnych n liniach posortowane punkty. Po każdym przypadku testowym jedna linia odstępu.
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.lang.Math.*;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		String name;
+		int num, quan, x, y;
+		Pkt[] pktTab;
+		Scanner read = new Scanner(System.in);
+		num = read.nextInt();
+		
+		for(int i = 0; i < num; i++){
+			quan = read.nextInt();
+			pktTab = new Pkt[quan];
+			
+			for(int j = 0; j < quan; j++){
+				name = read.next();
+				x = read.nextInt();
+				y = read.nextInt();
+				pktTab[j] = new Pkt(name, x, y);
+			}
+			if(quan > 1){
+				for(int j = 0; j < quan-1; j++){
+					for(int k = j+1; k < quan; k++){
+						if(pktTab[j].getLen() > pktTab[k].getLen()){
+							Pkt temp;
+							temp = pktTab[j];
+							pktTab[j] = pktTab[k];
+							pktTab[k] = temp;
+						}
+					}
+				}
+			}
+			
+			for(int j = 0; j < quan; j++){
+				System.out.println(pktTab[j].show());
+			}
+			
+			System.out.println();	
+		}
+	}	
+}
+
+class Pkt{
+	String name;
+	int x;
+	int y;
+	Double len;
+	
+	public Pkt(String name, int x, int y){
+		this.name = name;
+		this.x = x;
+		this.y = y;
+		length();
+	}
+	
+	public void length(){
+		len = (Double)Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+	}
+	
+	public String show(){
+		return (this.name + " " + x + " " + y);
+	}
+	
+	public Double getLen(){
+		return this.len;
+	}
+}
