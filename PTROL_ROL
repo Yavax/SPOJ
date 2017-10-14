@@ -1,0 +1,35 @@
+/*
+
+Przesuń elementy tablicy cyklicznie w lewo.
+Wejście
+Najpierw liczba testów t (t ≤ 100). Następnie dla każdego testu liczba n (1 < n ≤ 100) i n liczb.
+Wyjście
+Dla każdego testu n liczb w zmienionym porządku.
+*/
+
+import java.util.Scanner;
+
+class Ideone
+{
+	public static void main(String[] args) {
+ 
+		int num, quantity;
+		int[] arr;
+		Scanner read = new Scanner(System.in);
+		num = read.nextInt();
+ 
+		for(int i = 0; i < num; i++) {
+			quantity = read.nextInt();
+			arr = new int[quantity];
+ 
+			for(int j = 0; j < quantity; j++) {
+				if(j == 0) arr[quantity - 1] = read.nextInt();
+				else arr[j-1] = read.nextInt();
+			}
+			for(int j = 0; j< quantity; j++) {
+				System.out.print(arr[j] + " ");
+			}
+			System.out.println();
+		}
+	}
+}
