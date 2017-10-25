@@ -23,6 +23,7 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.math.*;
 
 class Main
 {
@@ -41,11 +42,16 @@ class Main
 		}
 	}
 	
-	public static long pascal(int n, int k){
-		if(n<= 1 || k == 0 || n == k){
-			return 1;
-		}else{
-			return pascal(n-1, k-1)+ pascal(n-1, k);
-		}
+	public static BigInteger pascal(int n, int k){
+		BigInteger result = new BigInteger("1");
+		int temp;
+		int i;
+        
+		for(i = 1; i <= k; i++){
+			temp = (n-i+1) / i;
+		                result = result.multiply(BigInteger.valueOf(temp));
+		        }
+        
+		 return result;
 	}
 }
