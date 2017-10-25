@@ -30,35 +30,31 @@ Dla każdego zestawu danych pojawiającego się na wejściu należy wypisać dok
 (każdą w osobnej linii), oznaczającą liczbę pudełek z ciastkami, jaką organizatorzy muszą kupić na Zlot.
 */
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
 class Main
 {
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws IOException	{
 		BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
 		int num = Integer.parseInt(read.readLine());
+		int ppl, inBox;
+		double eatCake;
 		String[] line;
-		int a,b;
 		
-		while(num-->0){
+		
+		for(int i = 0; i < num; i++){
+			eatCake = 0;
 			line = read.readLine().split(" ");
-			a = Integer.parseInt(line[0]);
-			b = Integer.parseInt(line[1]);
-			System.out.println(pascal(a, b));	
-		}
-	}
-	
-	public static long pascal(int n, int k){
-		if(n<= 1 || k == 0 || n == k){
-			return 1;
-		}else{
-			return pascal(n-1, k-1)+ pascal(n-1, k);
+			ppl = Integer.parseInt(line[0]);
+			inBox = Integer.parseInt(line[1]);
+			
+			while(ppl-->0){
+				eatCake+=(86400/Integer.parseInt(read.readLine()));
+			}
+			
+			System.out.println((int)Math.ceil(eatCake/inBox));
 		}
 	}
 }
