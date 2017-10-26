@@ -1,0 +1,52 @@
+/*
+Napisz program, który w 10-elementowej tablicy symuluje działanie stosu. 
+Na początku stos jest pusty, a następnie ma się zapełniać lub opróżniać zgodnie z wczytanymi z wejścia poleceniami.
+
+Wejście
+Na wejście programu podana zostanie pewna nieokreślona liczba zestawów danych. 
+Zestawy składają się albo z jednej linii zawierającej znak - (polecenie zdjęcia liczby ze stosu i wypisania jej na wyjście), 
+albo dwóch linii, z których pierwsza zawiera znak + (polecenie wstawienia liczby na stos), a druga niewielką liczbę całkowitą. 
+Poszczególne zestawy zostaną rozdzielone znakiem nowej linii.
+
+Wyjście
+Na wyjściu programu ma się pojawić ciąg napisów będących rezultatem wykonania pojawiających się na wejściu poleceń 
+(jeżeli polecenie udało się wykonać, to wypisujemy jego rezultat: w przypadku wstawienia liczby na stos wypisujemy ':)'; 
+w przypadku zdjęcia liczby jej wartość; w przypadku błędu ':('). Poszczególne napisy należy rozdzielić znakami nowej linii.
+*/
+
+import java.util.*;
+import java.lang.*;
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner read = new Scanner(System.in);
+		String[] arr = new String[10];
+		String temp;
+		int counter = 0;
+		
+		while(read.hasNext()){
+			temp = read.nextLine();
+			if(temp.equals("+")){
+				if(counter <= 9){
+					arr[counter] = read.nextLine();
+					counter++;
+					System.out.println(":)");
+				}else{
+					System.out.println(":(");
+				}
+			}else if(temp.equals("-")){
+				if(counter>0){
+					counter--;
+					System.out.println("" + arr[counter]);
+					arr[counter] = null;
+			
+				}else{
+					System.out.println(":(");
+				}
+			}
+		}
+	}
+}
